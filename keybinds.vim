@@ -14,9 +14,6 @@ set rtp+=/opt/homebrew/opt/fzf
 " ====================================================
 let g:which_key_map = {}
 
-" open explorer
-nnoremap <leader>e :Ex<CR>
-
 " Window Operations
 let g:which_key_map['w'] = {
       \ 'name' : '+windows' ,
@@ -67,8 +64,12 @@ let g:which_key_map.b = {
       \ 'l' : ['blast'     , 'last-buffer']     ,
       \ 'n' : ['bnext'     , 'next-buffer']     ,
       \ 'p' : ['bprevious' , 'previous-buffer'] ,
-      \ '?' : ['Buffers'   , 'fzf-buffer']      ,
+      \ 'b' : ['Buffers'   , 'fzf-buffer']      ,
       \ }
+
+" open explorer
+nnoremap <silent> \ :Ex<CR>
+autocmd FileType netrw nnoremap <silent> <ESC> :bd<CR>
 
 " register which-key
 call which_key#register('<Space>', "g:which_key_map")
