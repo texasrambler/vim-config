@@ -2,6 +2,15 @@
 " ====================================================
 " General Settings
 " ====================================================
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    set rtp+=/opt/homebrew/opt/fzf
+  else
+    set rtp+=/usr/bin/fzf
+  endif
+endif
+
 set nocompatible
 set path+=**
 set timeout
@@ -31,9 +40,9 @@ set showmatch
 " tabs and indentation
 set textwidth=80
 set smartindent
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set backspace=indent,eol,start
 
@@ -48,8 +57,9 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-tomorrow-night-eighties
 set background=dark
 
-" trandsparency
+" transparency
 hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " highlightedyank settings
 let g:highlightedyank_highlight_duration = 200
@@ -57,5 +67,17 @@ let g:highlightedyank_highlight_duration = 200
 " set show pairs
 set showmatch
 
-" Allow netrw cd
-" let g:netrw_keepdir= 1
+" undo
+set undofile
+let undo_dir = expand('$HOME/.vim/undodir')
+if !isdirectory(undo_dir)
+   call mkdir(undo_dir, "p")
+endif
+set undodir=undo_dir
+set noswapfile
+
+" python specific settings
+autocmd filetype python set expandtab
+autocmd filetype python set tabstop=4
+autocmd filetype python set shiftwidth=4
+autocmd filetype python set softtabstop=4

@@ -5,10 +5,6 @@
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 
-" == If you are using fzf and fzf.vim   ==
-" == set the path to the fzf executable ==
-set rtp+=/opt/homebrew/opt/fzf
-
 " ====================================================
 " Which-key Config
 " ====================================================
