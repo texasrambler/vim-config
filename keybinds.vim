@@ -64,8 +64,8 @@ let g:which_key_map.b = {
       \ }
 
 " open explorer
-nnoremap <silent> \ :Ex<CR>
-autocmd FileType netrw nnoremap <silent> <ESC> :bd<CR>
+nnoremap <silent> \ :Lexplore<CR>
+" autocmd FileType netrw nnoremap <silent> \\ :bd<CR>
 
 " register which-key
 call which_key#register('<Space>', "g:which_key_map")
@@ -73,3 +73,9 @@ nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 autocmd! FileType which_key
+
+" Fast split navigation with <Ctrl> + hjkl.
+noremap <c-h> <c-w><c-h>
+noremap <c-j> <c-w><c-j>
+noremap <c-k> <c-w><c-k>
+noremap <c-l> <c-w><c-j>
