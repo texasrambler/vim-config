@@ -6,3 +6,5 @@ else
 endif
 source ~/.vim/options.vim
 source ~/.vim/keybinds.vim
+source ~/.vim/lsp.vim
+
